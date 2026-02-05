@@ -136,6 +136,10 @@ Each dataset item returns a dictionary:
 
 This format is directly compatible with ision-Language fine-tuning.
 
+## Output Results
+
+![Alt text](p/home/maryam/Desktop/Synthetic_Data_Generator/generated_data/images/1.png)
+
 ## Training Integration (Dots.OCR example)
 
 The included Collator:
