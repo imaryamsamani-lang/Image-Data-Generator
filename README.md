@@ -138,8 +138,6 @@ This format is directly compatible with ision-Language fine-tuning.
 
 ## Output Results
 
-![Diagram](results/1.png)
-![Diagram](results/3.png)
 ![Diagram](results/5.png)
 ![Diagram](results/6.png)
 
