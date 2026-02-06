@@ -60,13 +60,13 @@ pip install -r requirements.txt
 Download the fonts and extract the into the fonts folder.
 
 persian fonts:
-https://drive.google.com/file/d/18JBa3f-4_tw2MgDiW6Po_-ydDdW11_8S/view?usp=drive_link
+[Persian Fonts](https://drive.google.com/file/d/18JBa3f-4_tw2MgDiW6Po_-ydDdW11_8S/view?usp=drive_link)
 
 english fonts:
-https://drive.google.com/file/d/1YoSQN6qhEtqpdI-x6ONxn7EAUW70fJ8q/view?usp=sharing
+[English Fonts](https://drive.google.com/file/d/1YoSQN6qhEtqpdI-x6ONxn7EAUW70fJ8q/view?usp=sharing)
 
 Add background images to the backgrounds folder. Some samples are provided here: 
-https://drive.google.com/file/d/1GsIPEeqV_rzKYY6nsR-Rcxj9vz9AB1V2/view?usp=sharing
+{Background Images](https://drive.google.com/file/d/1GsIPEeqV_rzKYY6nsR-Rcxj9vz9AB1V2/view?usp=sharing)
 
 
 📊 Input Data
@@ -90,7 +90,7 @@ The generator expects a CSV file with a text column, We have used the Dehkhoda d
 ```
 
 dehkhoda.csv is available at:
-https://drive.google.com/file/d/1mxMMTlPqATtShRoDYpgJdfcDarQIEjir/view?usp=drive_link
+[dehkhoda.csv](https://drive.google.com/file/d/1mxMMTlPqATtShRoDYpgJdfcDarQIEjir/view?usp=drive_link)
 
 ## Usage
 
