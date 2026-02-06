@@ -66,7 +66,7 @@ english fonts:
 [English Fonts](https://drive.google.com/file/d/1YoSQN6qhEtqpdI-x6ONxn7EAUW70fJ8q/view?usp=sharing)
 
 Add background images to the backgrounds folder. Some samples are provided here: 
-{Background Images](https://drive.google.com/file/d/1GsIPEeqV_rzKYY6nsR-Rcxj9vz9AB1V2/view?usp=sharing)
+[Background Images](https://drive.google.com/file/d/1GsIPEeqV_rzKYY6nsR-Rcxj9vz9AB1V2/view?usp=sharing)
 
 
 📊 Input Data
