@@ -1,77 +1,125 @@
-# 🧾 Synthetic Persian OCR Data Generator
+# Synthetic Persian OCR Data Generator
 
-A high-quality **synthetic image–text dataset generator** for **Persian / mixed Persian–English OCR and Vision-Language Models (VLMs)**.
+A high-fidelity synthetic image-text dataset generator specifically designed for Persian OCR and vision-language model training. This tool produces realistic document-like images with diverse Persian text content, supporting robust model development for Persian language understanding and optical character recognition tasks.
 
-Generates realistic document-like images with:
+## Overview
 
-- Persian text  
-- Mixed Persian–English tokens  
-- Quantities, units, numbering  
-- Random fonts, backgrounds, colors, distortions, rotations  
+Developing effective Persian OCR systems requires diverse, high-quality training data that captures the linguistic and visual complexity of real-world documents. This generator addresses the scarcity of annotated Persian text data by synthesizing document images with controlled variations in typography, layout, and appearance, enabling scalable training of vision-language models for Persian text understanding.
 
-Designed for:
+The system is particularly valuable for low-resource Persian language processing, providing a flexible framework for generating training data that mimics real document characteristics while maintaining full annotation control.
 
-- Vision-Language Model training
-- Low-resource Persian text recognition  
-- Robustness to layout, font, and background variations  
+## Key Features
+
+Persian language focus – Primary support for Persian (Farsi) script with integrated English and numeric content
+
+Realistic document simulation – Generates authentic-looking document layouts with proper text formatting
+
+Comprehensive visual variation – Randomized fonts, colors, background textures, and geometric transformations
+
+Advanced image processing – Implements conformal warping, CLAHE enhancement, and adaptive sharpening
+
+Multi-orientation support – Includes 0°, ±90°, and 180° rotations for orientation-invariant training
+
+Training-ready implementation – Provides complete PyTorch Dataset and Collator classes
+
+Dots.OCR compatibility – Specifically designed for integration with Persian OCR training frameworks
+
+Scalable data generation – Configurable sample counts with reproducible randomization
+
+## Technical Architecture
+
+### Text Generation Pipeline
+
+Persian text sourcing – Utilizes the Dehkhoda corpus for authentic Persian language content
+
+Mixed-language composition – Intelligently combines Persian, English, and numerical elements
+
+Bidirectional text handling – Proper management of Persian right-to-left text flow
+
+Document structure simulation – Creates realistic document hierarchies and formatting
+
+### Visual Synthesis Pipeline
+
+Text rendering – High-quality rendering with diverse Persian and English typefaces
+
+Layout composition – Dynamic positioning and formatting of document elements
+
+Geometric distortion – Application of conformal warping for natural document curvature
+
+Background integration – Seamless blending with texture backgrounds
+
+Image enhancement – Contrast enhancement and sharpening for OCR-optimized images
+
+Orientation randomization – Multi-angle rotation for robustness training
+
+### Data Management
+
+CSV-based text sourcing – Flexible input format for diverse text corpora
+
+Structured output organization – Systematic file naming and directory organization
+
+Annotation preservation – Complete text preservation with proper encoding
 
 
+## Installation
 
-## ✨ Features
-
--  **Persian-first OCR generation**  
--  Mixed Persian / English / numeric text rendering  
--  Random fonts, colors, and backgrounds  
--  Page-like layouts with numbering and lists  
--  Geometric distortions (conformal warp)  
--  Realistic image preprocessing (CLAHE, sharpening, resizing)  
--  Random rotations (0°, ±90°, 180°)  
--  PyTorch `Dataset` + `Collator` ready  
--  Compatible with **Dots.OCR style training**  
-
-
-
-## 📁 Project Structure
+### Project Structure
 
 ```text
-├── main.py                 # Dataset generation / visualization script
-├── data_loader.py          # PyTorch Dataset + Collator
-├── requirements.txt
-├── backgrounds/            # Background images (jpg/png/webp)
-├── fonts/
-│   ├── persian_fonts/      # Persian fonts (.ttf/.otf)
-│   └── english_fonts/      # English fonts
-├── generated_data/
-│   ├── images/
-│   └── labels/
-└── README.md
+├── main.py                 # Primary dataset generation and visualization
+├── data_loader.py          # PyTorch Dataset and Collator implementations
+├── requirements.txt        # Python dependencies
+├── dehkhoda.csv           # Persian text corpus (Dehkhoda dataset)
+├── backgrounds/           # Background texture images
+├── fonts/                 # Typography resources
+│   ├── persian_fonts/     # Persian-compatible typefaces
+│   └── english_fonts/     # English typefaces
+├── generated_data/        # Output directory
+│   ├── images/           # Generated document images
+│   └── labels/           # Corresponding text annotations
+└── results/              # Sample outputs and visualizations
 ```
 
+### Prerequisites
 
-⚙️ Installation
+Python 3.8+
 
-Clone the repository and install dependencies:
+PyTorch (≥1.9.0)
+
+Pillow for image processing
+
+OpenCV for advanced image transformations
+
+### Setup
+
 ```bash
+# Clone repository
 git clone https://github.com/imaryamsamani-lang/Image-Data-Generator.git
 cd Image-Data-Generator
+
+# Install Python dependencies
 pip install -r requirements.txt
 ```
 
-Download the fonts and extract the into the fonts folder.
+### Resource Acquisition
 
-persian fonts:
-[Persian Fonts](https://drive.google.com/file/d/18JBa3f-4_tw2MgDiW6Po_-ydDdW11_8S/view?usp=drive_link)
+Persian Fonts
+Download and extract Persian-compatible fonts into fonts/persian_fonts/: [Persian Fonts](https://drive.google.com/file/d/18JBa3f-4_tw2MgDiW6Po_-ydDdW11_8S/view?usp=drive_link)
 
-english fonts:
-[English Fonts](https://drive.google.com/file/d/1YoSQN6qhEtqpdI-x6ONxn7EAUW70fJ8q/view?usp=sharing)
-
-Add background images to the backgrounds folder. Some samples are provided here: 
-[Background Images](https://drive.google.com/file/d/1GsIPEeqV_rzKYY6nsR-Rcxj9vz9AB1V2/view?usp=sharing)
+English Fonts
+Place English typefaces in fonts/english_fonts/: [English Fonts](https://drive.google.com/file/d/1YoSQN6qhEtqpdI-x6ONxn7EAUW70fJ8q/view?usp=sharing)
 
 
-📊 Input Data
+Background Textures
+Add background images to backgrounds/ for document texturing: [Background Images](https://drive.google.com/file/d/1GsIPEeqV_rzKYY6nsR-Rcxj9vz9AB1V2/view?usp=sharing)
 
-The generator expects a CSV file with a text column, We have used the Dehkhoda dataset for it:
+Text Corpus (Dehkhoda Dataset)
+Download the Persian text corpus for content generation: [dehkhoda.csv](https://drive.google.com/file/d/1mxMMTlPqATtShRoDYpgJdfcDarQIEjir/view?usp=drive_link)
+
+### Input Data Format
+
+The generator utilizes a CSV file containing Persian text samples. The Dehkhoda dataset format is:
+
 
 ```text
 
@@ -89,76 +137,173 @@ The generator expects a CSV file with a text column, We have used the Dehkhoda d
 3704188	پایان
 ```
 
-dehkhoda.csv is available at:
-[dehkhoda.csv](https://drive.google.com/file/d/1mxMMTlPqATtShRoDYpgJdfcDarQIEjir/view?usp=drive_link)
+Custom CSV files can be used provided they follow this two-column structure with UTF-8 Persian text content.
 
 ## Usage
 
-1. Generate and save synthetic data
+### Data Generation
+
+Generate a synthetic dataset of document images with annotations:
 
 ```bash
 python main.py --save --output_path generated_data --max_samples 1000
 ```
 
-This will produce:
+Command-line Arguments:
 
-```bash
+--save: Enable saving generated data to disk
+
+--output_path: Directory for output storage (default: generated_data)
+
+--max_samples: Number of samples to generate
+
+--csv_path: Path to text corpus CSV (default: dehkhoda.csv)
+
+--image_size: Output image dimensions as "width,height" (default: 512,512)
+
+--seed: Random seed for reproducible generation
+
+--visualize: Preview generated samples without saving
+
+### Output Structure
+
+The generator produces organized output directories:
+
+```text
 generated_data/
-├── images/
-│   ├── 0.png
-│   ├── 1.png
+├── images/                 # Document images in PNG format
+│   ├── 0000.png
+│   ├── 0001.png
 │   └── ...
-└── labels/
-    ├── 0.txt
-    ├── 1.txt
+└── labels/                # Text annotations in UTF-8 encoding
+    ├── 0000.txt
+    ├── 0001.txt
     └── ...
 ```
 
-Each image has a corresponding UTF-8 Persian label.
+Each annotation file contains the complete Persian text content exactly as rendered in the corresponding image.
 
-2. Visualize samples (debug mode, training format)
+### Visualization Mode
+
+Preview generated samples with text overlays for verification:
+
 ```bash
-python main.py --visualize
+python main.py --visualize --num_samples 5
 ```
 
-## Dataset Output Format
+### Data Format
 
-Each dataset item returns a dictionary:
+Each generated sample is structured as a dictionary compatible with vision-language training:
 
 ```python
 {
-  "image": PIL.Image,
-  "answer": str,        # raw Persian text
-  "prompt_only": str,
-  "text_full": str
+    "image": PIL.Image,          # Document image in RGB format
+    "answer": str,              # Complete Persian text content
+    "prompt_only": str,         # Instruction prompt for OCR task
+    "text_full": str            # Combined prompt and response text
 }
 ```
 
-This format is directly compatible with ision-Language fine-tuning.
+This format supports both:
 
-## Output Results
+Direct OCR training – Using image-answer pairs for text recognition
+
+Instruction-following training – Using prompt-response formatting for conversational OCR
+
+## Training Integration
+
+### PyTorch Dataset
+
+The provided data_loader.py implements a complete PyTorch Dataset:
+
+```python
+from data_loader import PersianOCRDataset
+
+dataset = PersianOCRDataset(
+    data_dir="generated_data",
+    image_size=(512, 512),
+    augment=True,
+    max_length=512
+)
+```
+
+### Data Collator
+
+The custom Collator handles:
+
+Vision feature extraction – Image preprocessing and normalization
+
+Token masking – Proper handling of instruction-response formatting
+
+Persian tokenization – Specialized handling of Persian text encoding
+
+Batch preparation – Efficient batching with padding and attention masks
+
+### Dots.OCR Framework Compatibility
+
+The data format aligns with Persian OCR training requirements:
+
+Support for special tokens (<|assistant|>, <|end|>)
+
+Proper handling of Persian bidirectional text
+
+Vision encoder feature compatibility
+
+Causal language modeling training format
+
+## Sample Outputs
 
 ![Diagram](results/5.png)
 ![Diagram](results/6.png)
 
-## Training Integration (Dots.OCR example)
+## Performance Considerations
 
-The included Collator:
+### Text Quality
 
-Handles vision inputs via process_vision_info
+Persian text preservation – Text is saved in standard Unicode order without reshaping
 
-Masks prompt tokens correctly
+Font compatibility – All Persian fonts are verified for glyph coverage
 
-Supports multi-token <|assistant|> markers
+Encoding integrity – UTF-8 encoding ensures proper character preservation
 
-Produces labels for causal LM training
+### Image Quality
 
-## ⚠️ Important Notes
+Resolution scaling – Images are generated at specified dimensions with quality preservation
 
-Do NOT reshape Persian text when saving labels — arabic_reshaper is only for visualization
+Contrast optimization – Automatic contrast adjustment for OCR readability
 
-Fonts must support Persian glyphs
+Background variability – Diverse textures prevent overfitting to specific backgrounds
 
-Background images should be high resolution
+### Generation Speed
 
-This is a synthetic generator, not a real OCR dataset
+Batch processing – Efficient generation with configurable batch sizes
+
+Resource optimization – Memory-efficient image processing pipeline
+
+Parallelization support – Designed for potential multi-process generation
+
+## Important Notes
+
+### Text Handling Guidelines
+
+Do NOT reshape Persian text – The arabic_reshaper is used only for visual rendering; annotations preserve logical character order
+
+Font requirements – Ensure Persian fonts contain necessary glyphs for complete rendering
+
+Corpus quality – Text diversity directly impacts model generalization capability
+
+### Image Generation Parameters
+
+Background resolution – Use high-resolution backgrounds (≥1024×1024) for best results
+
+Font scaling – Dynamic font sizing based on content length and image dimensions
+
+Distortion control – Geometric distortion levels are calibrated for realism without excessive degradation
+
+### Limitations and Considerations
+
+Synthetic nature – Generated data may not capture all real-world document variations
+
+Domain adaptation – For specific document types (receipts, forms, manuscripts), consider domain-specific generation parameters
+
+Real data supplementation – For production systems, combine synthetic data with real annotated documents
