@@ -69,15 +69,15 @@ Annotation preservation – Complete text preservation with proper encoding
 ├── main.py                 # Primary dataset generation and visualization
 ├── data_loader.py          # PyTorch Dataset and Collator implementations
 ├── requirements.txt        # Python dependencies
-├── dehkhoda.csv           # Persian text corpus (Dehkhoda dataset)
-├── backgrounds/           # Background texture images
-├── fonts/                 # Typography resources
-│   ├── persian_fonts/     # Persian-compatible typefaces
-│   └── english_fonts/     # English typefaces
-├── generated_data/        # Output directory
-│   ├── images/           # Generated document images
-│   └── labels/           # Corresponding text annotations
-└── results/              # Sample outputs and visualizations
+├── dehkhoda.csv            # Persian text corpus (Dehkhoda dataset)
+├── backgrounds/            # Background texture images
+├── fonts/                  # Typography resources
+│   ├── persian_fonts/      # Persian-compatible typefaces
+│   └── english_fonts/      # English typefaces
+├── generated_data/         # Output directory
+│   ├── images/             # Generated document images
+│   └── labels/             # Corresponding text annotations
+└── results/                # Sample outputs and visualizations
 ```
 
 ### Prerequisites
@@ -148,7 +148,6 @@ Generate a synthetic dataset of document images with annotations:
 ```bash
 python main.py --save --output_path generated_data --max_samples 1000
 ```
-
 Command-line Arguments:
 
 --save: Enable saving generated data to disk
@@ -160,8 +159,6 @@ Command-line Arguments:
 --csv_path: Path to text corpus CSV (default: dehkhoda.csv)
 
 --image_size: Output image dimensions as "width,height" (default: 512,512)
-
---seed: Random seed for reproducible generation
 
 --visualize: Preview generated samples without saving
 
@@ -217,14 +214,11 @@ Instruction-following training – Using prompt-response formatting for conversa
 The provided data_loader.py implements a complete PyTorch Dataset:
 
 ```python
-from data_loader import PersianOCRDataset
+from data_loader import DotsOcrJsonl, Collator
+processor = #Placeholder processor (load later)
 
-dataset = PersianOCRDataset(
-    data_dir="generated_data",
-    image_size=(512, 512),
-    augment=True,
-    max_length=512
-)
+# Dataset
+data_train = DotsOcrJsonl(df, processor, "train")
 ```
 
 ### Data Collator
