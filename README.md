@@ -1,12 +1,12 @@
 # Synthetic Persian OCR Data Generator
 
-A high-fidelity synthetic image-text dataset generator specifically designed for Persian OCR and vision-language model training. This tool produces realistic document-like images with diverse Persian text content, supporting robust model development for Persian language understanding and optical character recognition tasks.
+A high-fidelity synthetic image-text dataset generator specifically designed for Persian OCR and vision-language model training. This tool produces realistic document-like images with diverse Persian text content, enabling robust model development for Persian language understanding and optical character recognition tasks, especially when real annotated data is scarce or unavailable. It is particularly useful for data augmentation, allowing the creation of large, varied training datasets to improve model generalization.
 
 ## Overview
 
-Developing effective Persian OCR systems requires diverse, high-quality training data that captures the linguistic and visual complexity of real-world documents. This generator addresses the scarcity of annotated Persian text data by synthesizing document images with controlled variations in typography, layout, and appearance, enabling scalable training of vision-language models for Persian text understanding.
+Developing effective Persian OCR systems requires diverse, high-quality training data that captures the linguistic and visual complexity of real-world documents. This generator addresses the scarcity of annotated Persian text data by synthesizing document images with controlled variations in typography, layout, and appearance. By producing fully annotated, realistic images, it enables scalable training of vision-language models for Persian text understanding.
 
-The system is particularly valuable for low-resource Persian language processing, providing a flexible framework for generating training data that mimics real document characteristics while maintaining full annotation control.
+The system is particularly valuable for low-resource Persian language processing, providing a flexible framework to generate training data that mimics real document characteristics while maintaining full control over annotations. This makes it ideal for both augmenting existing datasets and training models from scratch when real data is limited or unavailable.
 
 ## Key Features
 
